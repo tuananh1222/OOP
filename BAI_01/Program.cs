@@ -17,13 +17,13 @@ namespace Example1
             person.Add(new Person { Id = 5, Name = "Le Thi Linh", Age = 35, InCome = 2000, TaxCoe = 1 });
             person.Add(new Person { Id = 6, Name = "Nguyen Thu Hoa", Age = 17, InCome = 1000, TaxCoe = 1 });
             person.Add(new Person { Id = 7, Name = "Vu Tuan Anh", Age = 31, InCome = 13000, TaxCoe = 1 });
-            
+
         }
-        public  static void Output()
+        public static void Output()
         {
-            foreach(var p in person)
+            foreach (var p in person)
             {
-                Console.WriteLine($"Id: {p.Id} || Name: {p.Name} || Tax: {p.TaxCoe}");
+                Console.WriteLine($"Id: {p.Id} || Name: {p.Name} || Tax: {p.GetTax()}");
             }
         }
         static void Main(string[] args)

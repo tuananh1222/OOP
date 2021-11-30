@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace Bai_01
+using BAI_02;
+namespace BAI_02
 {
     internal class Person
     {
@@ -12,8 +12,16 @@ namespace Bai_01
         public string Name { get; set; }    
         public int Age { get; set; }
         public decimal InCome { get; set; }
-        public float TaxCoe { get; set; }
+        public int TaxCoe { get; set; }
 
+        public Person(int id, string name, int age, decimal income)
+        {
+            Id = id;
+            Name = name;
+            Age = age;
+            InCome = income;
+            TaxCoe = TaxData.GetTaxCoe(Age, InCome);
+        }
         public bool Equals(Person p)
         {
             if(!(Id == p.Id && Name == p.Name && Age == p.Age && InCome == p.InCome && TaxCoe == p.TaxCoe))
@@ -24,7 +32,7 @@ namespace Bai_01
         }
         public decimal GetTax()
         {
-            return InCome*(decimal)(1 - TaxCoe);
+            return InCome*(decimal)((float) TaxCoe/100);
         }
     }
 }

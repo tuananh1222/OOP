@@ -7,8 +7,23 @@ using System.Threading.Tasks;
 namespace BAI_03
 {
     internal class TaxData
-    {       
+    {
+        public List<IPerson> persons { get; set; }
 
+        public static TaxData Instance { get; set; }
+        public TaxData()
+        {
+            persons = new List<IPerson>();
+        }
+
+        public static TaxData Init()
+        {
+           if(Instance == null)
+            {
+                Instance = new TaxData();
+            }
+           return Instance;
+        }
         public static int GetTaxCoe(int age, decimal income)
         {
             if(age < 18)
